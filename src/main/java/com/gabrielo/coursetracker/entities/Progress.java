@@ -18,4 +18,8 @@ public class Progress {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp finishedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "moduleId")
+    private Module module;
 }

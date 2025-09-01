@@ -3,6 +3,8 @@ package com.gabrielo.coursetracker.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class User {
     @Id
@@ -14,6 +16,15 @@ public class User {
 
     @Column
     private String password;
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<LearningItem> learningItems;
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Goal> goals;
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<StudySession> studySessions;
 
     public User() {}
 

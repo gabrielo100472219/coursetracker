@@ -16,4 +16,8 @@ public class Goal {
 
     @Column
     private String notes;
+
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
 }

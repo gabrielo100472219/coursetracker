@@ -1,8 +1,8 @@
 package com.gabrielo.coursetracker.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Module {
@@ -10,5 +10,19 @@ public class Module {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
+    private String title;
 
+    @Column
+    private int orderIndex;
+
+    @Column
+    private int estimatedHours;
+
+    @ManyToOne
+    @JoinColumn(name = "learningItemId")
+    private LearningItem learningItem;
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Progress> progresses;
 }
