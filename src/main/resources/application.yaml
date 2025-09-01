@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: coursetracker
+  datasource:
+    url: jdbc:postgresql://localhost:5433/coursetracker
+    username: dev
+    password: dev
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
